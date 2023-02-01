@@ -14,17 +14,14 @@ $result_orientaciones = $conexion -> query($stmt_orientaciones);
 <html lang="es">
 <head>
 	<?php include 'inc/head.php' ?>
-	<title>Bibliotecología y Ciencias de la Información</title>
+	<title>morgan_john</title>
 </head>
 <body>
 	<?php include 'inc/nav.php' ?>
 	<div class="container">
 		<div class="row pt-3 mt-3">
-			<div class="alert alert-warning" role="alert">
-				El error en los acentos se debe a un cotejamiento incorrecto de la base de datos.
-			</div>
-			<div class="alert alert-success" role="alert">
-				"Insertar y mostrar registros provenientes de la BD" se observa en: <a href="create_materia.php">Crear materia</a> y <a href="create_docente.php">Crear docente</a>
+			<div class="alert alert-danger">
+				Para eliminar registros, ir a <a href="create_docente.php">creación de docentes</a>.
 			</div>
 		</div>
 		<div class="row py-3 my-3">
@@ -34,7 +31,7 @@ $result_orientaciones = $conexion -> query($stmt_orientaciones);
 				<ol>
 				<?php
 				while ($area = $result_areas -> fetch_assoc()) { ?>
-					<li><?php echo $area['area'] ?></li>
+					<li><?php echo utf8_encode($area['area']) ?></li>
 				<?php } ?>
 				</ol>
 			</div>
@@ -44,7 +41,7 @@ $result_orientaciones = $conexion -> query($stmt_orientaciones);
 				<ul>
 				<?php
 				while ($orientacion = $result_orientaciones -> fetch_assoc()) { ?>
-					<li><?php echo $orientacion['orientacion'] ?></li>
+					<li><?php echo utf8_encode($orientacion['orientacion']) ?></li>
 				<?php } ?>
 				</ul>
 			</div>
